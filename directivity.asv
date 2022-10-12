@@ -1,9 +1,0 @@
-function D0 = directivity(theta,phi,pattern,dtheta,dphi)
-    dtheta_rad = dtheta*pi/180
-    dphi_rad = dphi*pi/180
-    maxP = max(pattern,[],'all')
-    dOmega = sin(theta*pi/180)*dtheta_rad*dphi_rad;
-    Integral = abs(pattern).^2.*dOmega % Summing over this will be the integral
-    SolidAngle = sum(Integral/maxP.^2,'all')
-    D0 = 4*pi/SolidAngle;
-end
